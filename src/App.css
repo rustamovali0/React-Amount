@@ -1,0 +1,40 @@
+body{
+  background-color: rgb(244, 246, 249);
+}
+.btn1 {
+  background-color: rgb(48, 206, 10);
+ color: white;
+}
+
+.btn2 {
+  background-color: rgb(254, 30, 70);
+  color: white;
+
+}
+.navbar{
+background-color: white !important; 
+}
+
+div p {
+  font-size: 1.3rem;
+  color: rgb(85, 95, 125);
+} 
+div .true{
+  background-color:green ;
+  color: white;
+  padding-left: 9px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  border-radius: 50%;
+}
+div .false{
+  font-size: 2.5rem;
+  background-color:red ;
+  color: white;
+  padding-left: 9px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  border-radius: 50%;
+}
