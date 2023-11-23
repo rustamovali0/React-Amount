@@ -15,26 +15,12 @@ body{
 background-color: white !important; 
 }
 
-div p {
-  font-size: 1.3rem;
-  color: rgb(85, 95, 125);
-} 
-div .true{
-  background-color:green ;
-  color: white;
-  padding-left: 9px;
-  padding-right: 10px;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  border-radius: 50%;
+
+.currency-item:hover {
+  background-color: #0078f0;
+  cursor: pointer;
 }
-div .false{
-  font-size: 2.5rem;
-  background-color:red ;
-  color: white;
-  padding-left: 9px;
-  padding-right: 10px;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  border-radius: 50%;
+.dark{
+  background-color: #1d2424a9 !important;
+  color: #fff ; 
 }

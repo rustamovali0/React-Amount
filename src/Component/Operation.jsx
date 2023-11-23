@@ -1,13 +1,17 @@
-// Operation.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext, useState } from "react";
+import { Context } from '../Context/Context';
 import History from './History';
 import Balance from './Balance';
+import Swal from 'sweetalert2'
 
 const Operation = () => {
   const [amount, setAmount] = useState('');
   const [total, setTotal] = useState(0);
   const [description, setDescription] = useState('');
   const [history, setHistory] = useState([]);
+  const { theme, setTheme } = useContext(Context);
+  const { textColor, setTextColor } = useContext(Context)
+  
 
   useEffect(() => {
     const localAmount = JSON.parse(localStorage.getItem("amount")) || '';
@@ -24,8 +28,11 @@ const Operation = () => {
 
   const btnIncome = () => {
     if (amount.trim() === '' || description.trim() === '') {
-      alert('Input boş olamaz!');
-    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Input is empty!",
+      });  } else {
       const newOperation = { type: 'income', amount, description };
       setHistory([...history, newOperation]);
       setTotal((prevTotal) => {
@@ -41,8 +48,11 @@ const Operation = () => {
   
   const btnExpense = () => {
     if (amount.trim() === '' || description.trim() === '') {
-      alert('Input boş olamaz!');
-    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Input is empty!",
+      });    } else {
       const newOperation = { type: 'expense', amount, description };
       setHistory([...history, newOperation]);
       setTotal((prevTotal) => {
@@ -71,7 +81,7 @@ const ClearLocalStorage = () => {
     <div>
         <Balance total={total} ClearLocalStorage={ClearLocalStorage}/>
 
-      <div className='d-flex'>
+    <div className={`bg-${theme} text-${textColor} d-flex`}>
       <div className="col-4 mt-3 mx-4 p-4" style={{ backgroundColor: "white", height: "50rem" }}>
         <div className="d-flex flex-column align-items-start">
           <h1 style={{ color: "rgb(85, 95, 125)" }}>Operations</h1>
@@ -80,7 +90,7 @@ const ClearLocalStorage = () => {
             <input
               type="number"
               className="form-control"
-              placeholder="Enter a number"
+              placeholder="Enter a amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
             />
