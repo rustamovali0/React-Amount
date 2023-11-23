@@ -81,27 +81,28 @@ const ClearLocalStorage = () => {
     <div>
         <Balance total={total} ClearLocalStorage={ClearLocalStorage}/>
 
-    <div className={`bg-${theme} text-${textColor} d-flex`}>
-      <div className="col-4 mt-3 mx-4 p-4" style={{ backgroundColor: "white", height: "50rem" }}>
+    <div className={`bg-${theme === "light" ? "light" : "dark"} text-${textColor} d-flex`}>
+    <div className={`col-4 mt-3 mx-4 p-4 ${theme === "light" ? "light" : "dark"} text-${textColor}`} style={{ height: "50rem" }}>
         <div className="d-flex flex-column align-items-start">
-          <h1 style={{ color: "rgb(85, 95, 125)" }}>Operations</h1>
+          <h1 className={` text-${textColor}`} style={{ color: "rgb(85, 95, 125)" }}>Operations</h1>
           <label className='pt-3 py-2' style={{ fontSize: "1.3rem" }}>Amount</label>
           <div className="d-flex col-12">   
-            <input
-              type="number"
-              className="form-control"
-              placeholder="Enter a amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
+          <input
+                type="number"
+                className={`form-control ${theme === 'light' ? 'light' : 'dark'} text-${textColor}`}
+                placeholder="Enter an amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                style={{ backgroundColor: theme === 'light' ? 'white' : 'black' }}
+              />
           </div>
           <label className='pt-3 py-2' style={{ fontSize: "1.3rem" }}>Description</label>
           <div className="d-flex col-12">
             <textarea
-              className="form-control"
-              placeholder=""
+                className={`form-control ${theme === 'light' ? 'light' : 'dark'} text-${textColor}`}
+                placeholder=""
               rows="5"
-              style={{ verticalAlign: "top" }}
+              style={{ verticalAlign: "top", backgroundColor: theme === 'light' ? 'white' : 'black' }}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>

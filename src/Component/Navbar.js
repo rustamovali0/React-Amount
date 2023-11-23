@@ -43,7 +43,9 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    <div className={`bg-${ theme === "light" ? "light" : "dark"}`} style={{height:"1.2rem"}}
+></div >    </div>
+
   );
 }
 

@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from "react";
+import { Context } from '../Context/Context';
 import Dollar from './Images/Dollar.png';
 import Euro from './Images/Euro.png';
 import Azn from './Images/Azn.png';
 
+
 const Balance = ({ total, ClearLocalStorage }) => {
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const { theme, setTheme } = useContext(Context);
+  const { textColor, setTextColor } = useContext(Context)
 
   const currencyIcons = {
     USD: Dollar,
@@ -16,22 +20,22 @@ const Balance = ({ total, ClearLocalStorage }) => {
     setSelectedCurrency(currency);
   };
 
-const totalCurrency=()=>{
-  if(selectedCurrency === 'USD'){
-   return total
+  const totalCurrency = () => {
+    if (selectedCurrency === 'USD') {
+      return total
+    }
+    else if (selectedCurrency === 'EUR') {
+      return parseInt(total * 0.92)
+    }
+    else if (selectedCurrency === 'AZN') {
+      return parseInt(total * 1.70)
+    }
   }
-  else if(selectedCurrency === 'EUR'){
-    return parseInt(total*0.92)
-  }
-  else if(selectedCurrency === 'AZN'){
-    return parseInt(total*1.70)
-  }
-}
 
   return (
-    <div>
-      <div className='ms-4 me-3 mt-3'>
-        <nav className="navbar bg-body-tertiary">
+    <div className={`bg-${ theme === "light" ? "light" : "dark"}`}>
+      <div className={`ms-4 me-3 bg-body- ${theme === "light" ? "light" : "dark"} text-${textColor}`}>
+        <nav className={`navbar bg-body-tertiary ${theme === "light" ? "light" : "dark"} text-${textColor} `}>
           <div className="container-fluid">
             <a className="navbar-brand" style={{ color: "rgb(13, 153, 255)" }}>
               <i className="bi bi-cash-stack"></i> Balance
@@ -45,11 +49,11 @@ const totalCurrency=()=>{
                   className="btn "
                   role="button"
                   data-bs-toggle="dropdown"
-                  style={{ cursor: "pointer", backgroundColor:"rgb(13, 153, 255)" }}
+                  style={{ cursor: "pointer", backgroundColor: "rgb(13, 153, 255)" }}
                 >
                   <img src={currencyIcons[selectedCurrency]} alt={selectedCurrency} style={{ width: "2rem" }} />
                 </span>
-                <ul className="dropdown-menu" style={{ right: "0", left: "auto", minWidth: "110px"}}>
+                <ul className="dropdown-menu" style={{ right: "0", left: "auto", minWidth: "110px" }}>
                   <li className="dropdown-item currency-item" style={{ marginBottom: "7px" }} onClick={() => currencySelect('USD')}>
                     <img src={Dollar} style={{ width: "1.5rem", marginRight: "1rem" }} alt="Dollar" />
                     USD
