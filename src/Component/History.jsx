@@ -19,7 +19,7 @@ const History = ({ history }) => {
             <p key={index}>
               <div className="d-flex" style={{ fontSize: "1.15rem" }}>
                 {operation.type === 'income' ? <div style={{ paddingRight: "2rem" }}><img src={Approved} alt="Approved" />
-                </div> : <div style={{ paddingRight: "2rem" }}><img src={NoApproved} alt="Approved" /></div>}  {operation.description}
+                </div> : <div style={{ paddingRight: "2rem" }}><img src={NoApproved} style={{borderRadius:"50%"}} alt="Approved" /></div>}  {operation.description}
               </div>
 
             </p>
