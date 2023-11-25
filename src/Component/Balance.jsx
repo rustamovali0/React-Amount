@@ -25,7 +25,7 @@ const Balance = ({ total, ClearLocalStorage }) => {
       return total
     }
     else if (selectedCurrency === 'EUR') {
-      return parseInt(total * 0.92)
+      return parseInt(total * 0.9138)
     }
     else if (selectedCurrency === 'AZN') {
       return parseInt(total * 1.70)

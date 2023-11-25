@@ -10,8 +10,8 @@ const Provider = ({ children }) => {
     const savedTheme = localStorage.getItem('theme');
     const savedTextColor = localStorage.getItem('textColor');
 
-    setTheme(savedTheme || 'dark');
-    setTextColor(savedTextColor || 'light');
+    setTheme(savedTheme || 'light');
+    setTextColor(savedTextColor || 'dark');
   }, []);
 
   const toggleTheme = () => {
