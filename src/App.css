@@ -27,3 +27,22 @@ background-color: white !important;
 .light{
   background-color: white !important;
 }
+.history-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  gap: 1rem;
+}
+
+.history-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.history-item {
+  width: 100%;
+}
